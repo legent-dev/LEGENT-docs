@@ -1,0 +1,4 @@
+.md-typeset p {
+    font-family: var(--serif);
+    font-size: 0.9em !important;
+}

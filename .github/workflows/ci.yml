@@ -1,0 +1,52 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - master
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the current repository (where this action is triggered)
+      - uses: actions/checkout@v4
+
+      # Clone the second repository (LEGENT)
+      - name: Clone LEGENT repository
+        run: git clone https://github.com/thunlp/LEGENT.git
+
+      # Configure Git Credentials (for committing changes back if needed)
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+      # Setup Python environment
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      # Cache dependencies (optional but recommended for faster builds)
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+
+      # Install dependencies
+      - run: pip install mkdocs-material mkdocs-static-i18n[material]
+
+      # Copy assets (assuming copy_assets.py is in the repository)
+      - name: Run custom copy_assets.py script
+        run: python copy_assets.py
+
+      # Build and deploy using MkDocs
+      - run: mkdocs gh-deploy --force

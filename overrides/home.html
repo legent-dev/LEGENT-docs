@@ -1,0 +1,58 @@
+{% extends "main.html" %}
+{% block tabs %}
+  {{ super() }}
+  <style>.md-header{position:initial}.md-main__inner{margin:0}.md-content{display:none}@media screen and (min-width:60em){.md-sidebar--secondary{display:none}}@media screen and (min-width:76.25em){.md-sidebar--primary{display:none}}</style>
+  <section class="mdx-container">
+    <div class="md-grid md-typeset">
+      <div class="mdx-hero">
+        <div class="mdx-hero__image">
+          <br>
+          <br>
+          <br>
+          <br>
+          <img src="LEGENT-logo.webp" alt="" style="padding-left: -400 !important;" width="400" height="400" draggable="false">
+
+        </div>
+        <div class="mdx-hero__content">
+          {% if config.theme.language == 'zh' %}
+
+            <h1>语言交互的<br>具身智能体平台<br></h1>
+            <p>无门槛开启大模型的具身之旅</p>
+            <!--p>让科幻慢慢变得触手可及</p>
+            <p>research AGI in virtual game world</p-->
+            <a href="{{ 'zh/documentation/getting_started/installation' | url }}" title="Get started with LEGENT" class="md-button md-button--primary">
+              快速开始
+            </a>
+            <a href="{{ 'zh/blog/roadmap' | url }}" title="LEGENT Roadmap" class="md-button">
+              开发计划
+            </a>
+          {% else %}
+            <!--h1>A platform for<br>language-interactive<br>embodied agents</h1-->
+            <h0>Open Platform for<br>Embodied Agents</h0>
+            <!--h0>A platform for<br>embodied agent</h0-->
+            <!--p>human-like embodied agents</p-->
+            <p>
+            <comment>Build human-like robots that chat, see, and act.</comment>
+            </p>
+            <!--p>Exploit supervision from simulated worlds at scale.</p-->
+            <!--p>Open the world of large embodied models with ease.</p-->
+            <!--p>Open up the possibilities of embodiment for language models with ease.</p-->
+            <a href="{{ 'documentation/getting_started/installation' | url }}" title="Get started with LEGENT" class="md-button md-button--primary">
+              Quick start
+            </a>
+            <!-- <a href="{{ 'blog/roadmap' | url }}" title="LEGENT Roadmap" class="md-button">
+              See roadmap
+            </a> -->
+            <a href="https://github.com/thunlp/LEGENT" title="LEGENT" class="md-button">
+              See Github
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+{% block content %}{% endblock %}
+{% block footer %}
+<p style="text-align: center;font-size: 1.3em;">Copyright © THUNLP 2024</p>
+{% endblock %}

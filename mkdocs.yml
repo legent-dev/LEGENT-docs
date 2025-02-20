@@ -1,0 +1,84 @@
+site_name: LEGENT
+docs_dir: ../LEGENT/docs
+# repo_name: LEGENT
+repo_url: https://github.com/thunlp/LEGENT
+# site_url: https://docs.legent.ai
+edit_uri: edit/main/docs/
+theme:
+  name: material
+  custom_dir: overrides
+  features:
+    - content.code.annotate
+    - content.tabs.link
+    # - navigation.instant # this will cause the page to become unresponsive at times.
+    - navigation.tabs
+    - navigation.sections # add collapse
+    - navigation.top # add return top button
+    - navigation.tracking
+    - content.action.edit # edit this page
+
+    - content.code.copy
+  palette:
+    # scheme: slate # drak mode
+    primary: dark # light blue, green
+    # accent: default
+  logo: robot-light.svg
+  favicon: robot-dark.svg
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+nav:
+  - Home/主页: index.md
+  - Blog/博客:
+    - Introduction/介绍: blog/introduction.md
+    # - Roadmap/路线: blog/roadmap.md
+  - Documentation/文档:
+      - Getting Started/开始:
+        - Introduction/简介: documentation/getting_started/introduction.md
+        - Demo Video/演示: documentation/getting_started/demo_video.md
+        - Installation/安装: documentation/getting_started/installation.md
+        - Play/游玩: documentation/getting_started/play.md
+      - Environment/环境:
+        - Basic Usage/使用: documentation/environment/basic_usage.md
+        - Action Space/行动: documentation/environment/action.md
+        - Observation Space/观察: documentation/environment/observation.md
+        - Advanced Usage/环境:
+          - Rendering Settings/渲染: documentation/environment/rendering_settings.md
+          - Humanoid Motion/人体动作: documentation/environment/humanoid_motion.md
+      - Data/数据:
+        - Scene Generation/场景生成: documentation/data/scene_generation.md
+        - Object Assets/物体库: documentation/data/object_assets.md
+        - Task Generation/任务生成: documentation/data/task_generation.md
+        - Trajectory Generation/轨迹生成: documentation/data/trajectory_generation.md
+      - Model/模型:
+        - Vision-Language-Action/视觉语言行动: documentation/model/vla.md
+        - Single-image VLA/单图模型: documentation/model/single_image.md
+        - Multi-image VLA/多图模型: documentation/model/multi_image.md
+        - Evaluation/评测: documentation/model/evaluation.md
+
+
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: folder
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        # - locale: zh
+        #   name: 简体中文
+        #   build: true
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - admonition # admonition like !!! ???
+  - pymdownx.details
+  - pymdownx.superfences
+dev_addr: 127.0.0.1:8888
