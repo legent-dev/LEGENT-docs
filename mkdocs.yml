@@ -1,5 +1,5 @@
 site_name: LEGENT
-docs_dir: ../LEGENT/docs
+docs_dir: LEGENT/docs
 # repo_name: LEGENT
 repo_url: https://github.com/thunlp/LEGENT
 # site_url: https://docs.legent.ai
